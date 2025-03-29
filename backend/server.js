@@ -4,6 +4,7 @@ const cors = require("cors");
 const passport = require("passport");
 const db = require("./config/db"); // Ensure DB connection is established
 const skillsRoutes = require("./routes/skills");
+const matchingRoutes = require("./routes/matching");
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -15,6 +16,7 @@ const app = express();
 app.use(express.json()); // Parse JSON requests
 app.use(cors()); // Enable cross-origin requests
 app.use(passport.initialize()); // Initialize Passport for authentication
+app.use("/api/matching", matchingRoutes);
 
 // Test route
 app.get("/", (req, res) => {
@@ -24,7 +26,7 @@ app.get("/", (req, res) => {
 // Use API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/skills", skillsRoutes);
+app.use("/api/", skillsRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
