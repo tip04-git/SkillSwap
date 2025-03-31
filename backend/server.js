@@ -4,8 +4,9 @@ const cors = require("cors");
 
 const passport = require("passport");
 const db = require("./config/db"); // Ensure DB connection is established
-const skillsRoutes = require("./routes/skills");
+const skills = require("./routes/skills");
 const matchingRoutes = require("./routes/matching");
+const skillRoutes = require("./routes/skillRoutes");
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -27,7 +28,8 @@ app.get("/", (req, res) => {
 // Use API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/", skillsRoutes);
+app.use("/api/", skills);
+app.use("/api", skillRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
