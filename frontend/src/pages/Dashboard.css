@@ -1,0 +1,232 @@
+.dashboard-root {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #fce4ec 0%, #ede7f6 50%, #e3f2fd 100%);
+  font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
+  overflow: hidden;
+}
+
+.dashboard-sidebar {
+  width: 220px;
+  background: linear-gradient(to bottom, #7c3aed, #a78bfa);
+  color: white;
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+  border-radius: 0 24px 24px 0;
+}
+
+.logo {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-links li {
+  margin: 1rem 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.sidebar-links li:hover,
+.sidebar-links li.active {
+  color: #fcd34d;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-header h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-panels,
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+.dashboard-panel,
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 0;
+}
+
+.dashboard-panel:hover,
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.dashboard-welcome {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.07);
+}
+
+.skills-panel ul,
+.swaps-panel ul,
+.opportunities-panel ul,
+.notifications-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-tag {
+  background: #ede7f6;
+  color: #7c3aed;
+  border-radius: 8px;
+  padding: 2px 10px;
+  margin-right: 8px;
+  font-weight: 600;
+}
+.skill-meta {
+  color: #888;
+  font-size: 0.95em;
+}
+
+.dashboard-btn,
+.dashboard-panel button,
+.quick-actions button {
+  background: #a78bfa;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  margin: 6px 4px 0 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.dashboard-btn:hover,
+.dashboard-panel button:hover,
+.quick-actions button:hover {
+  background: #7c3aed;
+}
+
+.match-card {
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 12px 18px;
+  min-width: 180px;
+  box-shadow: 0 1px 4px rgba(124, 58, 237, 0.07);
+  margin: 0.4rem 0;
+}
+.match-actions button {
+  margin-right: 6px;
+  margin-top: 8px;
+}
+
+.xp-bar {
+  background: #ede7f6;
+  border-radius: 8px;
+  height: 16px;
+  margin-bottom: 8px;
+  width: 100%;
+  overflow: hidden;
+}
+.xp-progress {
+  background: #a78bfa;
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+}
+
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.opportunity-type {
+  font-weight: bold;
+  color: #7c3aed;
+  margin-right: 6px;
+}
+
+.event-day {
+  background: #a78bfa !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+}
+
+/* Highlight event days in react-calendar */
+.react-calendar__tile {
+  background: none !important;
+  color: inherit !important;
+  border-radius: 0 !important;
+}
+
+/* Subtle highlight for event days */
+.react-calendar__tile.event-day {
+  background: #ede7f6 !important;
+  color: #7c3aed !important;
+  border-radius: 8px !important;
+}
+
+/* Style for event details below the calendar */
+.calendar-event-details {
+  margin-top: 10px;
+  background-color: #f3f3ff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* Matches list and rows */
+.matches-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.match-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.match-info {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.match-name {
+  font-size: 1.1em;
+  margin-bottom: 2px;
+}
+
+.match-details {
+  font-size: 0.97em;
+  color: #666;
+}
+
+.match-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.match-buttons button {
+  margin-left: 0;
+}

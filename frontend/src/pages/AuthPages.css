@@ -1,0 +1,86 @@
+/* Reuse fonts & colors from LandingPage.css */
+.auth-root {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #fce4ec 0%, #ede7f6 50%, #e3f2fd 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #333;
+}
+
+.auth-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.signup-card {
+  max-width: 450px;
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.auth-form label {
+  font-weight: 600;
+  color: #7c3aed;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.auth-form input {
+  padding: 12px 16px;
+  border: 2px solid #a78bfa;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.auth-form input:focus {
+  border-color: #7c3aed;
+}
+
+.auth-btn {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.auth-footer-text {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.signup-link {
+  color: #a78bfa;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  color: #7c3aed;
+}

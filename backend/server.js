@@ -6,6 +6,7 @@ const passport = require("passport");
 const db = require("./config/db"); // Ensure DB connection is established
 const skills = require("./routes/skills");
 const matchingRoutes = require("./routes/matching");
+const matching = require("./routes/matchingRoutes");
 const skillRoutes = require("./routes/skillRoutes");
 
 const authRoutes = require("./routes/authRoutes");
@@ -19,6 +20,7 @@ app.use(cors()); // Enable cross-origin requests
 app.use(express.json()); // Parse JSON requests
 app.use(passport.initialize()); // Initialize Passport for authentication
 app.use("/api/matching", matchingRoutes);
+app.use("/api/matching", matching);
 
 // Test route
 app.get("/", (req, res) => {

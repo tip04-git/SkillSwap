@@ -7,28 +7,24 @@ const router = express.Router();
 
 // User Signup
 router.post("/signup", async (req, res) => {
-  const { name, email, password, skills } = req.body;
+  let { name, email, password, skills } = req.body;
+  if (!skills) skills = []; // Default to empty array if not provided
 
   try {
-    // Check if user exists
+    // ...rest of your code
     const userExists = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
     if (userExists.rows.length > 0) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insert new user
-    const newUser=await pool.query(
-      "INSERT INTO users (name, email, password, skills) VALUES ($1, $2, $3, $4) RETURNING *",
-      [name, email, hashedPassword, skills]
-    );
+    const newUser = await pool.query(
+    "INSERT INTO users (name, email, password, skills) VALUES ($1, $2, $3, $4) RETURNING *",
+    [name, email, hashedPassword, skills && skills.length ? skills : null]
+  );
 
-    res.status(201).json({ message: "User registered successfully",
-      user: newUser.rows[0],
-     });
-
+    res.status(201).json({ message: "User registered successfully", user: newUser.rows[0] });
   } catch (error) {
     res.status(500).json({ message: "Error registering user", error });
   }
