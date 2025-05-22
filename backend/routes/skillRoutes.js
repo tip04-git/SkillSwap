@@ -14,4 +14,25 @@ router.get("/skills", async (req, res) => {
     }
   });
 
+  // ✅ Add a skill with interest level
+router.post("/user-skills", async (req, res) => {
+    try {
+      const { user_id, skill_id, proficiency_level, interest_level } = req.body;
+  
+      const result = await pool.query(
+        `INSERT INTO user_skills (user_id, skill_id, proficiency_level, interest_level)
+         VALUES ($1, $2, $3, $4)
+         ON CONFLICT (user_id, skill_id) 
+         DO UPDATE SET proficiency_level = EXCLUDED.proficiency_level, interest_level = EXCLUDED.interest_level
+         RETURNING *`,
+        [user_id, skill_id, proficiency_level, interest_level]
+      );
+  
+      res.json(result.rows[0]);
+    } catch (err) {
+      console.error("❌ SQL Error:", err);
+      res.status(500).json({ error: err.message });
+    }
+  });
+
   module.exports = router;

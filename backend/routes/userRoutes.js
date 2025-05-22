@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../config/db");
+const authenticateJWT = require("../middleware/auth");
 
 // Route to get user profile data
-router.get("/profile", async (req, res) => {
+router.get("/profile", authenticateJWT, async (req, res) => { // <-- Add middleware here
     try {
       const userId = req.user.id; // Assuming JWT contains user ID
   
